@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="estate_menuitem_root_id" name="Estate">
+        <menuitem id="estate_menuitem_n2_id" name="Estate" action="estate_act_window_id"/>
+    </menuitem>
+</odoo>
