@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <!-- SEARCH VIEW -->
+    <record id="estate_property_search_id" model="ir.ui.view">
+        <field name="name">estate.property.view.search</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <search>
+                <field string="Title" name="name"/>
+                <field string="Postcode" name="postcode"/>
+                <field string="Expected Price" name="expected_price"/>
+                <field string="Bedrooms" name="bedrooms"/>
+                <field string="Living Area" name="living_area"/>
+                <field string="Living Area" name="living_area"/>
+                <field string="Façades" name="facades"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- FORM VIEW -->
     <record id="estate_property_view_form_id" model="ir.ui.view">
         <field name="name">estate.property.view.form</field>
         <field name="model">estate.property</field>
@@ -38,6 +56,7 @@
         </field>
     </record>
 
+    <!-- TREE VIEW -->
     <record id="estate_property_view_tree_id" model="ir.ui.view">
         <field name="name">estate.property.view.tree</field>
         <field name="model">estate.property</field>
