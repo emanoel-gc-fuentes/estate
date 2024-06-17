@@ -52,3 +52,14 @@ class EstateProperty(models.Model):
         ('east', 'East'),
         ('west', 'West'),
     ], string='garden orientation')
+
+    property_type_id = fields.Many2one('estate.property.type', string='property type')
+
+    partner_id = fields.Many2one('res.partner', string='partner_id', copy=False)
+
+    def _compute_user_id(self):
+        for order in self:
+            if order and not order.user_id:
+                order.user_id = (order.create_uid)
+
+    user_id = fields.Many2one('res.users', string='user_id', compute="_compute_user_id")

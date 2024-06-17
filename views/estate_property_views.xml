@@ -14,6 +14,7 @@
                 <field string="Living Area" name="living_area"/>
                 <field string="Living Area" name="living_area"/>
                 <field string="Façades" name="facades"/>
+                <field string="Property Type" name="property_type_id"/>
             </search>
         </field>
     </record>
@@ -31,6 +32,7 @@
                     
                     <group>
                         <group>
+                            <field string="Property Type" name="property_type_id"/>
                             <field name="postcode"></field>
                             <field name="date_availability"></field>
                         </group>
@@ -50,7 +52,25 @@
                                 <field name="garden_area"></field>
                             </group>
                         </page>
+                        <page string="Other Info">
+                            <group>
+                                <field string="Salesperson" name="user_id"/>
+                                <field string="Buyer" name="partner_id"/>
+                            </group>
+                        </page>
                     </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="estate_property_type_view_form_id" model="ir.ui.view">
+        <field name="name">estate.property.type.view.form</field>
+        <field name="model">estate.property.type</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="name"></field>
                 </sheet>
             </form>
         </field>
@@ -69,13 +89,31 @@
                 <field string="Expected Price" name="expected_price"/>
                 <field string="Selling Price" name="selling_price"/>
                 <field string="Date Availability" name="date_availability"/>
+                <field string="Property Type" name="property_type_id"/>
             </tree>
         </field>
     </record>
 
+    <record id="estate_property_type_view_tree_id" model="ir.ui.view">
+        <field name="name">estate.property.type.view.tree</field>
+        <field name="model">estate.property.type</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field string="Name" name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- ACTIONS -->
     <record id="estate_act_window_id" model="ir.actions.act_window">
         <field name="name">Estate</field>
         <field name="res_model">estate.property</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="estate_property_type_act_window_id" model="ir.actions.act_window">
+        <field name="name">Estate Property Type</field>
+        <field name="res_model">estate.property.type</field>
         <field name="view_mode">tree,form</field>
     </record>
 </odoo>
