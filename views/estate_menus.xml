@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <menuitem id="estate_menuitem_root_id" name="Real Estate" action="estate_act_window_id">
-        
         <menuitem id="estate_menuitem_advertisements" name="Advertisements"  sequence="11"/>
-        
         <menuitem id="estate_menuitem_submenu_root_id" name="Settings" sequence="12">   
             <menuitem id="estate_menuitem_type_id" name="Estate Property Type" action="estate_property_type_act_window_id"/>
+            <menuitem id="estate_menuitem_tag_id" name="Estate Property Tag" action="estate_property_tag_act_window_id"/>
         </menuitem>
     </menuitem>
 

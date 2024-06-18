@@ -18,7 +18,6 @@
             </search>
         </field>
     </record>
-
     <!-- FORM VIEW -->
     <record id="estate_property_view_form_id" model="ir.ui.view">
         <field name="name">estate.property.view.form</field>
@@ -29,27 +28,27 @@
                     <h1>
                         <field name="name"></field>
                     </h1>
-                    
+                    <field string="Tags" name="tag_ids" widget="many2many_tags"/>
                     <group>
                         <group>
                             <field string="Property Type" name="property_type_id"/>
-                            <field name="postcode"></field>
-                            <field name="date_availability"></field>
+                            <field string="Postcode" name="postcode"></field>
+                            <field string="Date Availability" name="date_availability"></field>
                         </group>
                         <group>
-                            <field name="expected_price"></field>
-                            <field name="selling_price"></field>
+                            <field string="Expected Price" name="expected_price"></field>
+                            <field string="Selling Price" name="selling_price"></field>
                         </group>
                     </group>
                     <notebook>
                         <page string="Description">
                             <group>
-                                <field name="description"></field>
-                                <field name="bedrooms"></field>
-                                <field name="living_area"></field>
-                                <field name="garage"></field>
-                                <field name="garden"></field>
-                                <field name="garden_area"></field>
+                                <field string="Description" name="description"></field>
+                                <field string="Bedrooms" name="bedrooms"></field>
+                                <field string="Living Area" name="living_area"></field>
+                                <field string="Garage" name="garage"></field>
+                                <field string="Garden" name="garden"></field>
+                                <field string="Garden Area" name="garden_area"></field>
                             </group>
                         </page>
                         <page string="Offers">
@@ -60,9 +59,8 @@
                                     <field string="Partner" name="partner_id"></field>
                                     <field string="Status" name="status"></field>
                                 </tree>
-                                
                                 <!-- VIEW FORM -->
-                                <form>
+                                <form string="Details">
                                     <sheet>
                                         <group>
                                             <field string="Price" name="price"></field>
@@ -73,7 +71,6 @@
                                 </form>
                             </field>
                         </page>
-
                         <page string="Other Info">
                             <group>
                                 <field string="Salesperson" name="salesperson_id"/>
@@ -98,7 +95,6 @@
             </form>
         </field>
     </record>
-
     <!-- TREE VIEW -->
     <record id="estate_property_view_tree_id" model="ir.ui.view">
         <field name="name">estate.property.view.tree</field>
@@ -116,7 +112,6 @@
             </tree>
         </field>
     </record>
-
     <record id="estate_property_type_view_tree_id" model="ir.ui.view">
         <field name="name">estate.property.type.view.tree</field>
         <field name="model">estate.property.type</field>
@@ -126,14 +121,26 @@
             </tree>
         </field>
     </record>
-
+    <record id="estate_property_tag_view_tree_id" model="ir.ui.view">
+        <field name="name">estate.property.tag.view.tree</field>
+        <field name="model">estate.property.tag</field>
+        <field name="arch" type="xml">
+            <tree string="Tags">
+                <field name="name"></field>
+            </tree>
+        </field>
+    </record>
     <!-- ACTIONS -->
     <record id="estate_act_window_id" model="ir.actions.act_window">
         <field name="name">Estate</field>
         <field name="res_model">estate.property</field>
         <field name="view_mode">tree,form</field>
     </record>
-
+    <record id="estate_property_tag_act_window_id" model="ir.actions.act_window">
+        <field name="name">Estate Property Tag</field>
+        <field name="res_model">estate.property.tag</field>
+        <field name="view_mode">tree</field>
+    </record>
     <record id="estate_property_type_act_window_id" model="ir.actions.act_window">
         <field name="name">Estate Property Type</field>
         <field name="res_model">estate.property.type</field>

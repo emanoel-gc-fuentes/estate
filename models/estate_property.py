@@ -60,8 +60,10 @@ class EstateProperty(models.Model):
     def _compute_salesperson_id(self):
         for order in self:
             if order and not order.salesperson_id:
-                order.salesperson_id = (order.create_uid)
+                order.salesperson_id = self.env.user
 
     salesperson_id = fields.Many2one('res.users', string='salesperson_id', compute="_compute_salesperson_id")
 
     offer_ids = fields.One2many('estate.property.offer', 'property_id', string='offer_ids')
+
+    tag_ids = fields.Many2many('estate.property.tag', string="Tags")
