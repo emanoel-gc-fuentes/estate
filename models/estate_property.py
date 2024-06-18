@@ -55,11 +55,13 @@ class EstateProperty(models.Model):
 
     property_type_id = fields.Many2one('estate.property.type', string='property type')
 
-    partner_id = fields.Many2one('res.partner', string='partner_id', copy=False)
+    buyer_id = fields.Many2one('res.partner', string='buyer_id', copy=False)
 
-    def _compute_user_id(self):
+    def _compute_salesperson_id(self):
         for order in self:
-            if order and not order.user_id:
-                order.user_id = (order.create_uid)
+            if order and not order.salesperson_id:
+                order.salesperson_id = (order.create_uid)
 
-    user_id = fields.Many2one('res.users', string='user_id', compute="_compute_user_id")
+    salesperson_id = fields.Many2one('res.users', string='salesperson_id', compute="_compute_salesperson_id")
+
+    offer_ids = fields.One2many('estate.property.offer', 'property_id', string='offer_ids')

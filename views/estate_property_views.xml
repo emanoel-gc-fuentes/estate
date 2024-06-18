@@ -52,12 +52,35 @@
                                 <field name="garden_area"></field>
                             </group>
                         </page>
+                        <page string="Offers">
+                            <field name="offer_ids">
+                                <!-- VIEW TREE -->
+                                <tree>
+                                    <field string="Price" name="price"></field>
+                                    <field string="Partner" name="partner_id"></field>
+                                    <field string="Status" name="status"></field>
+                                </tree>
+                                
+                                <!-- VIEW FORM -->
+                                <form>
+                                    <sheet>
+                                        <group>
+                                            <field string="Price" name="price"></field>
+                                            <field string="Partner" name="partner_id"></field>
+                                            <field string="Status" name="status"></field>
+                                        </group>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </page>
+
                         <page string="Other Info">
                             <group>
-                                <field string="Salesperson" name="user_id"/>
-                                <field string="Buyer" name="partner_id"/>
+                                <field string="Salesperson" name="salesperson_id"/>
+                                <field string="Buyer" name="buyer_id"/>
                             </group>
                         </page>
+
                     </notebook>
                 </sheet>
             </form>
